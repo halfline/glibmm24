@@ -1,6 +1,6 @@
 Name:           glibmm24
-Version:        2.4.4
-Release:        0.fdr.1.2
+Version:        2.4.5
+Release:        1
 Epoch:          0
 Summary:        A C++ interface for GTK2 (a GUI library for X).
 
@@ -81,6 +81,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Wed Nov 17 2004 Denis Leroy <denis@poolshark.org> - 0:2.4.5-1
+- Upgrade to glibmm 2.4.5
+
 * Mon Jun 27 2004 Denis Leroy <denis@poolshark.org> - 0:2.4.4-0.fdr.1
 - Upgrade to 2.4.4
 - Moved docs to regular directory
