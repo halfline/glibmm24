@@ -1,8 +1,7 @@
 Name:           glibmm24
 Version:        2.4.5
 Release:        1
-Epoch:          0
-Summary:        A C++ interface for GTK2 (a GUI library for X).
+Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPL
@@ -12,8 +11,8 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires(post):   /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
-BuildRequires:  libsigc++20-devel >= 0:2.0.0
-BuildRequires:  glib2-devel >= 0:2.4.0
+BuildRequires:  libsigc++20-devel >= 2.0.0
+BuildRequires:  glib2-devel >= 2.4.0
 
 %description
 gtkmm provides a C++ interface to the GTK+ GUI library. gtkmm2 wraps GTK+ 2.
@@ -22,9 +21,9 @@ and a comprehensive set of widget classes that can be freely combined to
 quickly create complex user interfaces.
 
 %package devel
-Summary:        Headers for developing programs that will use %{name}.
+Summary:        Headers for developing programs that will use %{name}
 Group:          Development/Libraries
-Requires:       %{name} = %{epoch}:%{version}-%{release}
+Requires:       %{name} = %{version}-%{release}
 Requires:       glib2-devel
 Requires:       libsigc++20-devel
 
@@ -53,15 +52,12 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 rm -rf $RPM_BUILD_ROOT
 
 
-
 %post
 /sbin/ldconfig
 
 
-
 %postun
 /sbin/ldconfig
-
 
 
 %files
