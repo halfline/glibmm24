@@ -1,6 +1,7 @@
 Name:           glibmm24
 Version:        2.4.5
-Release:        1
+Release:        2
+
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -77,6 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Fri Apr  7 2005 Michael Schwendt <mschwendt[AT]users.sf.net>
+- rebuilt
+
 * Wed Nov 17 2004 Denis Leroy <denis@poolshark.org> - 0:2.4.5-1
 - Upgrade to glibmm 2.4.5
 
