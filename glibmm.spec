@@ -1,7 +1,6 @@
 Name:           glibmm24
 Version:        2.6.1
-Release:        1
-
+Release:        2
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -78,6 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Fri Sep  2 2005 Michael Schwendt <mschwendt[AT]users.sf.net> - 2.6.1-2
+- rebuild for gcc-c++-4.0.1-12
+  result for GLIBMM_CXX_ALLOWS_STATIC_INLINE_NPOS check changed
+
 * Sat Apr  9 2005 Denis Leroy <denis@poolshark.org> - 2.6.1-1
 - Update to version 2.6.1
 
