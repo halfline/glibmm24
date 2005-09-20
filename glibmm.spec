@@ -1,18 +1,18 @@
 Name:           glibmm24
-Version:        2.6.1
-Release:        2
+Version:        2.8.0
+Release:        1
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPL
 URL:            http://gtkmm.sourceforge.net/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.6/glibmm-%{version}.tar.bz2
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.8/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Requires(post):   /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.6.0
+BuildRequires:  glib2-devel >= 2.8.0
 
 %description
 gtkmm provides a C++ interface to the GTK+ GUI library. gtkmm2 wraps GTK+ 2.
@@ -77,6 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Mon Sep 19 2005 Denis Leroy <denis@poolshark.org> - 2.8.0-1
+- Upgrade to 2.8.0
+- Updated glib2 version dependency
+
 * Fri Sep  2 2005 Michael Schwendt <mschwendt[AT]users.sf.net> - 2.6.1-2
 - rebuild for gcc-c++-4.0.1-12
   result for GLIBMM_CXX_ALLOWS_STATIC_INLINE_NPOS check changed
