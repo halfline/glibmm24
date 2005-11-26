@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.8.0
+Version:        2.8.2
 Release:        1
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -37,7 +37,7 @@ developing gtkmm applications.
 
 
 %build
-%configure --enable-static
+%configure --disable-static
 make %{?_smp_mflags}
 
 
@@ -70,13 +70,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-, root, root, -)
 %doc CHANGES docs-to-include/*
 %{_includedir}/glibmm-2.4
-%{_libdir}/*.a
 %{_libdir}/*.so
 %{_libdir}/glibmm-2.4
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Fri Nov 25 2005 Denis Leroy <denis@poolshark.org> - 2.8.2-1
+- Update to 2.8.2
+- Disabled static libraries
+
 * Mon Sep 19 2005 Denis Leroy <denis@poolshark.org> - 2.8.0-1
 - Upgrade to 2.8.0
 - Updated glib2 version dependency
