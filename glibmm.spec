@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.8.2
+Version:        2.8.3
 Release:        1
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -76,6 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Sat Dec 17 2005 Denis Leroy <denis@poolshark.org> - 2.8.3-1
+- Update to 2.8.3
+
 * Fri Nov 25 2005 Denis Leroy <denis@poolshark.org> - 2.8.2-1
 - Update to 2.8.2
 - Disabled static libraries
