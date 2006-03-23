@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.8.4
+Version:        2.10.0
 Release:        1
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -12,7 +12,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires(post):   /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.8.0
+BuildRequires:  glib2-devel >= 2.9.0
 
 %description
 gtkmm provides a C++ interface to the GTK+ GUI library. gtkmm2 wraps GTK+ 2.
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Mon Mar 20 2006 Denis Leroy <denis@poolshark.org> - 2.10.0-1
+- Update to 2.10.0, requires newer glib
+
 * Tue Feb 28 2006 Denis Leroy <denis@poolshark.org> - 2.8.4-1
 - Update to 2.8.4
 - Added optional macro to enable static libs
