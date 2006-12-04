@@ -1,6 +1,6 @@
 Name:           glibmm24
-Version:        2.12.2
-Release:        1
+Version:        2.12.3
+Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -77,6 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %changelog
+* Mon Dec  4 2006 Denis Leroy <denis@poolshark.org> - 2.12.3-1
+- Update to 2.12.3
+- Added dist tag
+
 * Mon Oct  2 2006 Denis Leroy <denis@poolshark.org> - 2.12.2-1
 - Update to 2.12.2
 
