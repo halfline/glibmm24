@@ -1,16 +1,14 @@
 Name:           glibmm24
-Version:        2.12.4
+Version:        2.12.5
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPL
 URL:            http://gtkmm.sourceforge.net/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.10/glibmm-%{version}.tar.bz2
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.12/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-Requires(post):   /sbin/ldconfig
-Requires(postun): /sbin/ldconfig
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.9.0
 
@@ -52,12 +50,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 rm -rf $RPM_BUILD_ROOT
 
 
-%post
-/sbin/ldconfig
+%post -p /sbin/ldconfig
 
 
-%postun
-/sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 
 %files
@@ -76,7 +72,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
 
+
 %changelog
+* Sun Jan 28 2007 Denis Leroy <denis@poolshark.org> - 2.12.5-1
+- Update to 2.12.5, some spec cleanups
+
 * Tue Jan  9 2007 Denis Leroy <denis@poolshark.org> - 2.12.4-1
 - Update to 2.12.4, number of bug fixes
 
