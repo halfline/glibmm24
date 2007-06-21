@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.13.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -40,11 +40,14 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT docs-to-include
+rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
-%{__mkdir} docs-to-include
-%{__mv} ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* docs-to-include/
+
+# Fix documentation installation, put everything under gtk-doc
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
+%{__mv} ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -58,22 +61,25 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-, root, root, -)
-%doc AUTHORS ChangeLog COPYING NEWS README
+%doc AUTHORS ChangeLog COPYING NEWS README CHANGES
 %{_libdir}/*.so.*
 
 
 %files devel
 %defattr(-, root, root, -)
-%doc CHANGES docs-to-include/*
 %{_includedir}/glibmm-2.4
 %{?_with_static: %{_libdir}/*.a}
 %{_libdir}/*.so
 %{_libdir}/glibmm-2.4
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
+%doc %{_datadir}/gtk-doc/html/glibmm-2.4
 
 
 %changelog
+* Fri Jun 22 2007 Denis Leroy <denis@poolshark.org> - 2.13.6-2
+- Moved documentation to devhelp directory
+
 * Thu Jun 21 2007 Denis Leroy <denis@poolshark.org> - 2.13.6-1
 - Update to unstable 2.13 tree to follow glib2 version
 
