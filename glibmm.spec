@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.13.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jul  3 2007 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 2.13.6-3
+- Rebuild against newest GLib (due to #245141, #245634)
+
 * Fri Jun 22 2007 Denis Leroy <denis@poolshark.org> - 2.13.6-2
 - Moved documentation to devhelp directory
 
