@@ -1,10 +1,10 @@
 Name:           glibmm24
 Version:        2.13.9
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
-License:        LGPL
+License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.12/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Aug 22 2007 Denis Leroy <denis@poolshark.org> - 2.13.9-2
+- License tag update
+
 * Wed Aug  1 2007 Denis Leroy <denis@poolshark.org> - 2.13.9-1
 - Update to 2.13.9
 
