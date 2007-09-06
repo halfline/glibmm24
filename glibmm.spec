@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.13.9
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -10,7 +10,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.12/glibmm-%{vers
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.9.0
+BuildRequires:  glib2-devel >= 2.13.0
 
 %description
 gtkmm provides a C++ interface to the GTK+ GUI library. gtkmm2 wraps GTK+ 2.
@@ -42,6 +42,8 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
+
+rm -rf tools
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 # Fix documentation installation, put everything under gtk-doc
@@ -77,6 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Sep  6 2007 Denis Leroy <denis@poolshark.org> - 2.13.9-3
+- Removed Perl code autogeneration tools (#278191)
+
 * Wed Aug 22 2007 Denis Leroy <denis@poolshark.org> - 2.13.9-2
 - License tag update
 
