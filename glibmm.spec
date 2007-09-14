@@ -1,6 +1,6 @@
 Name:           glibmm24
-Version:        2.13.9
-Release:        3%{?dist}
+Version:        2.14.0
+Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -79,6 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Sep 14 2007 Denis Leroy <denis@poolshark.org> - 2.14.0-1
+- Update to new stable tree 2.14.0
+
 * Thu Sep  6 2007 Denis Leroy <denis@poolshark.org> - 2.13.9-3
 - Removed Perl code autogeneration tools (#278191)
 
