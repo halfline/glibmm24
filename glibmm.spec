@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.14.2
+Version:        2.15.0
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -10,7 +10,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.12/glibmm-%{vers
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.14.0
+BuildRequires:  glib2-devel >= 2.15.0
 
 %description
 gtkmm provides a C++ interface to the GTK+ GUI library. gtkmm2 wraps GTK+ 2.
@@ -70,15 +70,21 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(-, root, root, -)
 %{_includedir}/glibmm-2.4
+%{_includedir}/giomm-2.4
 %{?_with_static: %{_libdir}/*.a}
 %{_libdir}/*.so
 %{_libdir}/glibmm-2.4
+%{_libdir}/giomm-2.4
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
 %doc %{_datadir}/gtk-doc/html/glibmm-2.4
 
 
 %changelog
+* Tue Jan  8 2008 Denis Leroy <denis@poolshark.org> - 2.15.0-1
+- Update to 2.15 branch, to follow up with glib2
+- Now with giomm goodness
+
 * Sun Nov  4 2007 Denis Leroy <denis@poolshark.org> - 2.14.2-1
 - Update to 2.14.2, BRs update
 
