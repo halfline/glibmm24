@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-, root, root, -)
-%doc AUTHORS ChangeLog COPYING NEWS README CHANGES
+%doc AUTHORS ChangeLog COPYING NEWS README
 %{_libdir}/*.so.*
 
 
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Tue Feb 12 2008 Denis Leroy <denis@poolshark.org> - 2.15.5-1
-- Update to 2.15.5, skipping borked 2.15.4
+- Update to 2.15.5, skipping borked 2.15.4, CHANGES file gone
 
 * Wed Jan 23 2008 Denis Leroy <denis@poolshark.org> - 2.15.2-1
 - Update to upstream 2.15.2
