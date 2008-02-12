@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.15.4
+Version:        2.15.5
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -81,8 +81,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Mon Feb 11 2008 Denis Leroy <denis@poolshark.org> - 2.15.4-1
-- Update to 2.15.4
+* Tue Feb 12 2008 Denis Leroy <denis@poolshark.org> - 2.15.5-1
+- Update to 2.15.5, skipping borked 2.15.4
 
 * Wed Jan 23 2008 Denis Leroy <denis@poolshark.org> - 2.15.2-1
 - Update to upstream 2.15.2
