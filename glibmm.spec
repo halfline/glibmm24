@@ -79,7 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/giomm-2.4
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
-%doc %{_datadir}/devhelp/books/glibmm-2.4
 %doc %{_datadir}/gtk-doc/html/glibmm-2.4
 
 
