@@ -36,7 +36,7 @@ developing gtkmm applications.
 
 
 %build
-%configure %{!?_with_static: --disable-static}
+%configure --disable-fulldocs %{!?_with_static: --disable-static}
 make %{?_smp_mflags}
 
 
@@ -50,6 +50,7 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 # Fix documentation installation, put everything under gtk-doc
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
 %{__mv} ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+rm -fr $RPM_BUILD_ROOT%{_datadir}/devhelp/books/glibmm-2.4
 
 
 %clean
@@ -78,12 +79,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/giomm-2.4
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
+%doc %{_datadir}/devhelp/books/glibmm-2.4
 %doc %{_datadir}/gtk-doc/html/glibmm-2.4
 
 
 %changelog
 * Wed Mar 12 2008 Denis Leroy <denis@poolshark.org> - 2.16.0-1
-- Update to upstream 2.16.0
+- Update to upstream 2.16.0, added --disable-fulldocs
 
 * Tue Feb 12 2008 Denis Leroy <denis@poolshark.org> - 2.15.5-1
 - Update to 2.15.5, skipping borked 2.15.4, CHANGES file gone
