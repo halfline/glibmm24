@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.16.0
+Version:        2.16.1
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -83,6 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Apr 12 2008 Denis Leroy <denis@poolshark.org> - 2.16.1-1
+- Update to upstream 2.16.1, filechooser refcount bugfix
+
 * Wed Mar 12 2008 Denis Leroy <denis@poolshark.org> - 2.16.0-1
 - Update to upstream 2.16.0, added --disable-fulldocs
 
