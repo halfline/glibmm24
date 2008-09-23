@@ -1,12 +1,12 @@
 Name:           glibmm24
-Version:        2.17.2
+Version:        2.18.0
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.16/glibmm-%{version}.tar.bz2
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
@@ -83,6 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Sep 23 2008 Denis Leroy <denis@poolshark.org> - 2.18.0-1
+- Update to upstream 2.18.0
+
 * Sun Aug 24 2008 Denis Leroy <denis@poolshark.org> - 2.17.2-1
 - Update to upstream 2.17.2
 
