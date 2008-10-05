@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.18.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -8,6 +8,8 @@ License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Patch1:		  glibmm-2.18.0-gio-header-fix.patch
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.17.3
@@ -33,7 +35,7 @@ developing gtkmm applications.
 
 %prep
 %setup -q -n glibmm-%{version}
-
+%patch1 -p1 -b .gio-header
 
 %build
 %configure --disable-fulldocs %{!?_with_static: --disable-static}
@@ -83,6 +85,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Oct 05 2008 Adel Gadllah <adel.gadllah@gmail.com> - 2.18.0-2
+- Backport upstream fix that resolves HOST_NOT_FOUND
+  symbol conflicts (GNOME #529496)
+
 * Tue Sep 23 2008 Denis Leroy <denis@poolshark.org> - 2.18.0-1
 - Update to upstream 2.18.0
 
