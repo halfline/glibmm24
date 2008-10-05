@@ -1,7 +1,7 @@
-diff -upNr glibmm-2.18.0.orign/gio/src/error.hg glibmm-2.18.0/gio/src/error.hg
---- glibmm-2.18.0.orign/gio/src/error.hg	2008-07-16 18:38:00.000000000 +0200
-+++ glibmm-2.18.0/gio/src/error.hg	2008-10-05 11:52:14.000000000 +0200
-@@ -19,6 +19,16 @@
+diff -upNr glibmm-2.18.0.orign/gio/giomm/error.h glibmm-2.18.0/gio/giomm/error.h
+--- glibmm-2.18.0.orign/gio/giomm/error.h	2008-07-25 21:11:43.000000000 +0200
++++ glibmm-2.18.0/gio/giomm/error.h	2008-10-05 13:10:19.000000000 +0200
+@@ -27,6 +27,15 @@
  
  #include <glibmm/interface.h>
  
@@ -14,11 +14,10 @@ diff -upNr glibmm-2.18.0.orign/gio/src/error.hg glibmm-2.18.0/gio/src/error.hg
 +#define GIOMM_SAVED_HOST_NOT_FOUND HOST_NOT_FOUND
 +#undef HOST_NOT_FOUND
 +#endif // HOST_NOT_FOUND
-+
- _DEFS(giomm,gio)
- _PINCLUDE(glibmm/private/interface_p.h)
  
-@@ -35,3 +45,8 @@ _WRAP_GERROR(Error, GIOErrorEnum, G_IO_E
+ namespace Gio
+ {
+@@ -96,6 +105,11 @@ private:
  
  } // namespace Gio
  
@@ -27,3 +26,6 @@ diff -upNr glibmm-2.18.0.orign/gio/src/error.hg glibmm-2.18.0/gio/src/error.hg
 +#define HOST_NOT_FOUND GIOMM_SAVED_HOST_NOT_FOUND
 +#undef GIOMM_SAVED_HOST_NOT_FOUND
 +#endif // GIOMM_SAVED_HOST_NOT_FOUND
+ 
+ #endif /* _GIOMM_ERROR_H */
+ 

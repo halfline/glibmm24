@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.18.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -85,6 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Oct 05 2008 Adel Gadllah <adel.gadllah@gmail.com> - 2.18.0-3
+- Patch error.h directly rather than error.hg
+
 * Sun Oct 05 2008 Adel Gadllah <adel.gadllah@gmail.com> - 2.18.0-2
 - Backport upstream fix that resolves HOST_NOT_FOUND
   symbol conflicts (GNOME #529496)
