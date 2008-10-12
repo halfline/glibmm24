@@ -7,9 +7,8 @@ Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{version}.tar.bz2
+Patch1:         glibmm-2.18.0-gio-header-fix.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
-Patch1:		  glibmm-2.18.0-gio-header-fix.patch
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.17.3
@@ -21,6 +20,7 @@ library. Highlights include typesafe callbacks, widgets extensible via
 inheritance and a comprehensive set of widget classes that can be
 freely combined to quickly create complex user interfaces.
 
+
 %package devel
 Summary:        Headers for developing programs that will use %{name}
 Group:          Development/Libraries
@@ -28,18 +28,18 @@ Requires:       %{name} = %{version}-%{release}
 Requires:       glib2-devel
 Requires:       libsigc++20-devel
 
+
 %description devel
 This package contains the static libraries and header files needed for
 developing glibmm applications.
 
 
-%package        docs
+%package        doc
 Summary:        Documentation for %{name}, includes full API docs
 Group:          Documentation
-Requires:       %{name}-devel = %{version}-%{release}
 
 
-%description    docs
+%description    doc
 This package contains the full API documentation for %{name}.
 
 
@@ -96,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 
-%files docs
+%files doc
 %defattr(-, root, root, -)
 %doc %{_datadir}/gtk-doc/html/glibmm-2.4
 
@@ -104,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sat Oct 11 2008 Denis Leroy <denis@poolshark.org> - 2.18.0-4
 - Split documentation in new doc sub-package
+- Fixed some devhelp documentation links
 
 * Sun Oct 05 2008 Adel Gadllah <adel.gadllah@gmail.com> - 2.18.0-3
 - Patch error.h directly rather than error.hg
