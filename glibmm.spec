@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.18.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -16,10 +16,10 @@ BuildRequires:  glib2-devel >= 2.17.3
 
 
 %description
-gtkmm provides a C++ interface to the GTK+ GUI library. gtkmm2 wraps GTK+ 2.
-Highlights include typesafe callbacks, widgets extensible via inheritance
-and a comprehensive set of widget classes that can be freely combined to
-quickly create complex user interfaces.
+glibmm provides a C++ interface to the GTK+ GLib low-level core
+library. Highlights include typesafe callbacks, widgets extensible via
+inheritance and a comprehensive set of widget classes that can be
+freely combined to quickly create complex user interfaces.
 
 %package devel
 Summary:        Headers for developing programs that will use %{name}
@@ -30,15 +30,26 @@ Requires:       libsigc++20-devel
 
 %description devel
 This package contains the static libraries and header files needed for
-developing gtkmm applications.
+developing glibmm applications.
+
+
+%package        docs
+Summary:        Documentation for %{name}, includes full API docs
+Group:          Documentation
+Requires:       %{name}-devel = %{version}-%{release}
+
+
+%description    docs
+This package contains the full API documentation for %{name}.
 
 
 %prep
 %setup -q -n glibmm-%{version}
 %patch1 -p1 -b .gio-header
 
+
 %build
-%configure --disable-fulldocs %{!?_with_static: --disable-static}
+%configure %{!?_with_static: --disable-static}
 make %{?_smp_mflags}
 
 
@@ -52,6 +63,8 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 # Fix documentation installation, put everything under gtk-doc
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
 %{__mv} ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+%{__mv} ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+sed -i 's:../../../doc/glibmm-2.4/docs/:docs/:' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp
 rm -fr $RPM_BUILD_ROOT%{_datadir}/devhelp/books/glibmm-2.4
 
 
@@ -81,10 +94,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/giomm-2.4
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
+
+
+%files docs
+%defattr(-, root, root, -)
 %doc %{_datadir}/gtk-doc/html/glibmm-2.4
 
 
 %changelog
+* Sat Oct 11 2008 Denis Leroy <denis@poolshark.org> - 2.18.0-4
+- Split documentation in new doc sub-package
+
 * Sun Oct 05 2008 Adel Gadllah <adel.gadllah@gmail.com> - 2.18.0-3
 - Patch error.h directly rather than error.hg
 
