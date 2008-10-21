@@ -1,13 +1,12 @@
 Name:           glibmm24
-Version:        2.18.0
-Release:        4%{?dist}
+Version:        2.18.1
+Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{version}.tar.bz2
-Patch1:         glibmm-2.18.0-gio-header-fix.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
@@ -45,7 +44,6 @@ This package contains the full API documentation for %{name}.
 
 %prep
 %setup -q -n glibmm-%{version}
-%patch1 -p1 -b .gio-header
 
 
 %build
@@ -102,6 +100,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Oct 21 2008 Denis Leroy <denis@poolshark.org> - 2.18.1-1
+- Update to upstream 2.18.1, many bug fixes
+- Patch for define conflict upstreamed
+
 * Sat Oct 11 2008 Denis Leroy <denis@poolshark.org> - 2.18.0-4
 - Split documentation in new doc sub-package
 - Fixed some devhelp documentation links
