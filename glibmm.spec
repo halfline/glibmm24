@@ -1,6 +1,6 @@
 Name:           glibmm24
-Version:        2.18.1
-Release:        2%{?dist}
+Version:        2.19.1
+Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -10,7 +10,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{vers
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.17.3
+BuildRequires:  glib2-devel >= 2.19.0
 
 
 %description
@@ -100,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Jan 14 2009 Denis Leroy <denis@poolshark.org> - 2.19.1-1
+- Update to upstream 2.19.1
+
 * Thu Dec 11 2008 Mamoru Tasaka <mtasaka@ioa.s.u-tokyo.ac.jp> - 2.18.1-2
 - Rebuild for pkgconfig provides
 
