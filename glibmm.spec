@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.19.1
+Version:        2.19.2
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -100,6 +100,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Feb 14 2009 Denis Leroy <denis@dedibox.albator.org> - 2.19.2-1
+- Update to upstream 2.19.2
+- Some new API, memory leak fix
+
 * Wed Jan 14 2009 Denis Leroy <denis@poolshark.org> - 2.19.1-1
 - Update to upstream 2.19.1
 
