@@ -1,6 +1,6 @@
 Name:           glibmm24
-Version:        2.19.2
-Release:        2%{?dist}
+Version:        2.20.0
+Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -10,7 +10,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{vers
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.19.0
+BuildRequires:  glib2-devel >= 2.19.8
 
 
 %description
@@ -100,10 +100,13 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Mar 21 2009 Denis Leroy <denis@poolshark.org> - 2.20.0-1
+- Update to 2.20.0
+
 * Tue Feb 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.19.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
 
-* Sat Feb 14 2009 Denis Leroy <denis@dedibox.albator.org> - 2.19.2-1
+* Sat Feb 14 2009 Denis Leroy <denis@poolshark.org> - 2.19.2-1
 - Update to upstream 2.19.2
 - Some new API, memory leak fix
 
