@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.21.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
@@ -100,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.21.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Thu Jul  9 2009 Denis Leroy <denis@poolshark.org> - 2.21.1-1
 - Update to upstream 2.21.1
 - Switch to unstable branch, to follow glib2 version
