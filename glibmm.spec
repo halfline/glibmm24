@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.21.3
+Version:        2.21.4
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -61,9 +61,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 # Fix documentation installation, put everything under gtk-doc
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
 %{__mv} ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
-%{__mv} ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
-sed -i 's:../../../doc/glibmm-2.4/docs/:docs/:' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp
+%{__mv} ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp2 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+sed -i 's:../../../doc/glibmm-2.4/docs/:docs/:' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp2
 rm -fr $RPM_BUILD_ROOT%{_datadir}/devhelp/books/glibmm-2.4
+rm -fr $RPM_BUILD_ROOT%{_datadir}/glibmm-2.4
 
 
 %clean
@@ -100,6 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Aug 30 2009 Denis Leroy <denis@poolshark.org> - 2.21.4-1
+- Update to upstream 2.21.4
+
 * Sun Aug 16 2009 Denis Leroy <denis@poolshark.org> - 2.21.3-1
 - Update to upstream 2.21.3
 
