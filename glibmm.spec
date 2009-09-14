@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.21.4.2
+Version:        2.21.5
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -64,7 +64,6 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
 %{__mv} ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp2 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
 sed -i 's:../../../doc/glibmm-2.4/docs/:docs/:' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp2
 rm -fr $RPM_BUILD_ROOT%{_datadir}/devhelp/books/glibmm-2.4
-rm -fr $RPM_BUILD_ROOT%{_datadir}/glibmm-2.4
 
 
 %clean
@@ -92,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/glibmm-2.4
 %{_libdir}/giomm-2.4
 %{_libdir}/pkgconfig/*.pc
+%{_datadir}/glibmm-2.4
 %{_datadir}/aclocal/*.m4
 
 
@@ -101,6 +101,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Sep 14 2009 Denis Leroy <denis@poolshark.org> - 2.21.5-1
+- Update to upstream 2.21.5
+- Keep datadir/glibmm-2.4, for doc scripts
+
 * Wed Sep  2 2009 Denis Leroy <denis@poolshark.org> - 2.21.4.2-1
 - Update to upstream 2.21.4.2
 
