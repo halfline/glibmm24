@@ -7,6 +7,7 @@ Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{version}.tar.bz2
+Patch0:         glibmm-2.21.5-devhelp.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
@@ -44,6 +45,7 @@ This package contains the full API documentation for %{name}.
 
 %prep
 %setup -q -n glibmm-%{version}
+%patch0 -p1 -b .devhelp
 
 
 %build
@@ -60,10 +62,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 # Fix documentation installation, put everything under gtk-doc
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
-%{__mv} ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
-%{__mv} ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp2 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
-sed -i 's:../../../doc/glibmm-2.4/docs/:docs/:' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp2
-rm -fr $RPM_BUILD_ROOT%{_datadir}/devhelp/books/glibmm-2.4
+mv ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/reference/html/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+mv ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp2 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+# Remove old doc directory
+rm -fr ${RPM_BUILD_ROOT}%{_datadir}/doc/glibmm-2.4
 
 
 %clean

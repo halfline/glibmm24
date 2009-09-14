@@ -1,0 +1,9 @@
+--- glibmm-2.21.5/docs/reference/glibmm-2.4.devhelp2~	2009-09-08 20:53:54.000000000 +0200
++++ glibmm-2.21.5/docs/reference/glibmm-2.4.devhelp2	2009-09-14 15:58:20.465208463 +0200
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<book xmlns="http://www.devhelp.net/book" title="glibmm Reference Manual" name="glibmm-2.4" base="http://library.gnome.org/devel/glibmm/unstable" link="index.html" version="2" language="c++">
++<book xmlns="http://www.devhelp.net/book" title="glibmm Reference Manual" name="glibmm-2.4" link="index.html" version="2" language="c++">
+   <chapters>
+     <sub name="Modules" link="modules.html">
+       <sub name="Character Set Conversion" link="group__CharsetConv.html"/>
