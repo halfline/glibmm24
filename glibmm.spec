@@ -1,13 +1,12 @@
 Name:           glibmm24
 Version:        2.21.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://gtkmm.sourceforge.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.18/glibmm-%{version}.tar.bz2
-Patch0:         glibmm-2.21.5-devhelp.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
@@ -45,7 +44,6 @@ This package contains the full API documentation for %{name}.
 
 %prep
 %setup -q -n glibmm-%{version}
-%patch0 -p1 -b .devhelp
 
 
 %build
@@ -62,8 +60,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 # Fix documentation installation, put everything under gtk-doc
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
-mv ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/reference/html/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+mv ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
 mv ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp2 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
+# Fix devhelp broken base tag
+sed -i 's:base="[^\"]*":base="/usr/share/gtk-doc/html/glibmm-2.4/reference/html":' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp2
 # Remove old doc directory
 rm -fr ${RPM_BUILD_ROOT}%{_datadir}/doc/glibmm-2.4
 
@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Sep 15 2009 Denis Leroy <denis@poolshark.org> - 2.21.5-2
+- Better fix for devhelp file broken tags
+
 * Mon Sep 14 2009 Denis Leroy <denis@poolshark.org> - 2.21.5-1
 - Update to upstream 2.21.5
 - Keep datadir/glibmm-2.4, for doc scripts
