@@ -5,7 +5,7 @@ Summary:        C++ interface for GTK2 (a GUI library for X)
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
-URL:            http://gtkmm.sourceforge.net/
+URL:            http://http://www.gtkmm.org/.net/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.22/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
