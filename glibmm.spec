@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.23.2
+Version:        2.23.3
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Mar  8 2010 Denis Leroy <denis@poolshark.org> - 2.23.3-1
+- Update to upstream 2.23.3, several bug fixes
+
 * Thu Feb 18 2010 Denis Leroy <denis@poolshark.org> - 2.23.2-1
 - Update to upstream 2.23.2
 
