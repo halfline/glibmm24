@@ -1,5 +1,5 @@
 Name:           glibmm24
-Version:        2.23.3
+Version:        2.24.1
 Release:        1%{?dist}
 Summary:        C++ interface for GTK2 (a GUI library for X)
 
@@ -10,7 +10,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.22/glibmm-%{vers
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.23.1
+BuildRequires:  glib2-devel >= 2.24.0
 
 
 %description
@@ -48,6 +48,10 @@ This package contains the full API documentation for %{name}.
 
 %build
 %configure %{!?_with_static: --disable-static}
+# removing rpath
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
 make %{?_smp_mflags}
 
 
@@ -103,6 +107,12 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Apr 29 2010 Haikel Guémar <hguemar@fedoraproject.org> - 2.24.1-1
+- Update to upstream 2.24.1
+
+* Wed Apr  7 2010 Denis Leroy <denis@poolshark.org> - 2.24.0-1
+- Update to stable 2.24.0
+
 * Mon Mar  8 2010 Denis Leroy <denis@poolshark.org> - 2.23.3-1
 - Update to upstream 2.23.3, several bug fixes
 
