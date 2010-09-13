@@ -104,7 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(-, root, root, -)
-%doc %{_datadir}/gtk-doc/html/glibmm-2.4
+%{_datadir}/gtk-doc/
 
 
 %changelog
@@ -114,6 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 - Fixed macro-in-changelog rpmlint warning
 - Build doc subpackage as noarch and require base package as
   per new licensing guidelines
+- Co-own gtk-doc directory (#604169)
 
 * Thu Apr 29 2010 Haikel Guémar <hguemar@fedoraproject.org> - 2.24.1-1
 - Update to upstream 2.24.1
