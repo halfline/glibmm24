@@ -35,6 +35,8 @@ developing glibmm applications.
 %package        doc
 Summary:        Documentation for %{name}, includes full API docs
 Group:          Documentation
+BuildArch:      noarch
+Requires:       %{name} = %{version}-%{release}
 
 
 %description    doc
@@ -110,6 +112,8 @@ rm -rf $RPM_BUILD_ROOT
 - Update to 2.24.2
 - Reworked description and summary
 - Fixed macro-in-changelog rpmlint warning
+- Build doc subpackage as noarch and require base package as
+  per new licensing guidelines
 
 * Thu Apr 29 2010 Haikel Guémar <hguemar@fedoraproject.org> - 2.24.1-1
 - Update to upstream 2.24.1
