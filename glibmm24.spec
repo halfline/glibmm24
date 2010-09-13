@@ -1,7 +1,7 @@
 Name:           glibmm24
 Version:        2.24.2
 Release:        1%{?dist}
-Summary:        C++ interface for GTK2 (a GUI library for X)
+Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
@@ -14,10 +14,9 @@ BuildRequires:  glib2-devel >= 2.24.0
 
 
 %description
-glibmm provides a C++ interface to the GTK+ GLib low-level core
-library. Highlights include typesafe callbacks, widgets extensible via
-inheritance and a comprehensive set of widget classes that can be
-freely combined to quickly create complex user interfaces.
+glibmm is the official C++ interface for the popular cross-platform
+library GLib. It provides non-UI API that is not available in standard
+C++ and makes it possible for gtkmm to wrap GObject-based APIs.
 
 
 %package devel
@@ -109,6 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Mon Sep 13 2010 Kalev Lember <kalev@smartlink.ee> - 2.24.2-1
 - Update to 2.24.2
+- Reworked description and summary
 
 * Thu Apr 29 2010 Haikel Guémar <hguemar@fedoraproject.org> - 2.24.1-1
 - Update to upstream 2.24.1
