@@ -109,6 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Sep 13 2010 Kalev Lember <kalev@smartlink.ee> - 2.24.2-1
 - Update to 2.24.2
 - Reworked description and summary
+- Fixed macro-in-changelog rpmlint warning
 
 * Thu Apr 29 2010 Haikel Guémar <hguemar@fedoraproject.org> - 2.24.1-1
 - Update to upstream 2.24.1
@@ -309,7 +310,7 @@ rm -rf $RPM_BUILD_ROOT
 
 * Thu Dec 5 2002 Walter H. van Holst <rpm-maintainer@fossiel.xs4all.nl> - 1.0.2
 - Removed reference to patch
-- Added the documentation files in %files
+- Added the documentation files in %%files
 
 * Thu Oct 31 2002 Gary Peck <gbpeck@sbcglobal.net> - 2.0.0-gp1
 - Update to 2.0.0
