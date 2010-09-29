@@ -1,6 +1,6 @@
 Name:           glibmm24
 Version:        2.24.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -108,6 +108,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Sep 29 2010 jkeating - 2.24.2-2
+- Rebuilt for gcc bug 634757
+
 * Mon Sep 13 2010 Kalev Lember <kalev@smartlink.ee> - 2.24.2-1
 - Update to 2.24.2
 - Reworked description and summary
