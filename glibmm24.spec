@@ -1,16 +1,16 @@
 Name:           glibmm24
-Version:        2.25.5
+Version:        2.27.1
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.gtkmm.org/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.25/glibmm-%{version}.tar.bz2
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.27/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.25.16
+BuildRequires:  glib2-devel >= 2.27.1
 
 
 %description
@@ -108,6 +108,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Nov 01 2010 Kalev Lember <kalev@smartlink.ee> - 2.27.1-1
+- Update to 2.27.1
+
 * Wed Sep 29 2010 Tom "spot" Callaway <tcallawa@redhat.com> - 2.25.5-1
 - update to 2.25.5
 
