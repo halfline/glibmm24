@@ -1,3 +1,6 @@
+# first two digits of version
+%define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
+
 Name:           glibmm24
 Version:        2.27.2
 Release:        1%{?dist}
@@ -6,7 +9,7 @@ Summary:        C++ interface for the GLib library
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.gtkmm.org/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.27/glibmm-%{version}.tar.bz2
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
@@ -110,6 +113,8 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Tue Nov 02 2010 Kalev Lember <kalev@smartlink.ee> - 2.27.2-1
 - Update to 2.27.2
+- Use macro for automatically calculating ftp directory name with
+  first two digits of tarball version.
 
 * Mon Nov 01 2010 Kalev Lember <kalev@smartlink.ee> - 2.27.1-1
 - Update to 2.27.1
