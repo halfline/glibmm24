@@ -2,7 +2,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.27.3
+Version:        2.27.4
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -13,7 +13,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.27.3
+BuildRequires:  glib2-devel >= 2.27.4
 
 
 %description
@@ -111,6 +111,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Dec 03 2010 Kalev Lember <kalev@smartlink.ee> - 2.27.4-1
+- Update to 2.27.4
+
 * Thu Nov 11 2010 Kalev Lember <kalev@smartlink.ee> - 2.27.3-1
 - Update to 2.27.3
 
