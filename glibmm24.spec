@@ -1,8 +1,10 @@
+%global tarname glibmm
+%global api_ver 2.4
 # first two digits of version
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.27.93
+Version:        2.27.94
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -40,7 +42,7 @@ Summary:        Documentation for %{name}, includes full API docs
 Group:          Documentation
 BuildArch:      noarch
 Requires:       %{name} = %{version}-%{release}
-
+Requires:       libsigc++20-doc
 
 %description    doc
 This package contains the full API documentation for %{name}.
@@ -65,15 +67,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 rm -rf tools
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
-
-# Fix documentation installation, put everything under gtk-doc
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4
-mv ${RPM_BUILD_ROOT}%{_docdir}/glibmm-2.4/* $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
-mv ${RPM_BUILD_ROOT}%{_datadir}/devhelp/books/glibmm-2.4/*.devhelp2 $RPM_BUILD_ROOT%{_datadir}/gtk-doc/html/glibmm-2.4/
-# Fix devhelp broken base tag
-sed -i 's:base="[^\"]*":base="/usr/share/gtk-doc/html/glibmm-2.4/reference/html":' ${RPM_BUILD_ROOT}%{_datadir}/gtk-doc/html/glibmm-2.4/*.devhelp2
-# Remove old doc directory
-rm -fr ${RPM_BUILD_ROOT}%{_datadir}/doc/glibmm-2.4
 
 
 %clean
@@ -107,10 +100,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(-, root, root, -)
-%{_datadir}/gtk-doc/
-
+%doc %{_docdir}/%{tarname}-%{api_ver}/*
+%{_datadir}/devhelp/
 
 %changelog
+* Mon Feb 21 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.27.94-1
+- upstream 2.27.94
+- fix documentation location
+- co-own /usr/share/devhelp
+
 * Thu Feb 03 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.93-1
 - Update to 2.27.93
 
