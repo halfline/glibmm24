@@ -5,7 +5,7 @@
 
 Name:           glibmm24
 Version:        2.27.94
-Release:        1%{?dist}
+Release:        1%{?dist}.1
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -28,8 +28,8 @@ C++ and makes it possible for gtkmm to wrap GObject-based APIs.
 Summary:        Headers for developing programs that will use %{name}
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       glib2-devel
-Requires:       libsigc++20-devel
+Requires:       glib2-devel%{?_isa}
+Requires:       libsigc++20-devel%{?_isa}
 
 
 %description devel
@@ -41,7 +41,7 @@ developing glibmm applications.
 Summary:        Documentation for %{name}, includes full API docs
 Group:          Documentation
 BuildArch:      noarch
-Requires:       %{name} = %{version}-%{release}
+BuildRequires:  doxygen graphviz
 Requires:       libsigc++20-doc
 
 %description    doc
@@ -100,8 +100,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(-, root, root, -)
-%doc %{_docdir}/%{tarname}-%{api_ver}/*
-%{_datadir}/devhelp/
+%doc %{_datadir}/devhelp/books/%{tarname}-%{api_ver}
+%doc %{_docdir}/%{tarname}-%{api_ver}
 
 %changelog
 * Mon Feb 21 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.27.94-1
