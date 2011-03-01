@@ -39,6 +39,7 @@ developing glibmm applications.
 Summary:        Documentation for %{name}, includes full API docs
 Group:          Documentation
 BuildArch:      noarch
+Requires:       %{name} = %{version}-%{release}
 Requires:       libsigc++20-doc
 
 %description    doc
@@ -102,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 * Tue Mar 01 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.94-2
 - Spec cleanup
 - Actually co-own /usr/share/devhelp/ directory
+- Require base package from -doc subpackage
 
 * Mon Feb 21 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.27.94-1
 - upstream 2.27.94
