@@ -39,7 +39,6 @@ developing glibmm applications.
 Summary:        Documentation for %{name}, includes full API docs
 Group:          Documentation
 BuildArch:      noarch
-BuildRequires:  doxygen graphviz
 Requires:       libsigc++20-doc
 
 %description    doc
