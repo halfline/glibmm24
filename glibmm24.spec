@@ -94,13 +94,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(-,root,root,-)
-%doc %{_datadir}/devhelp/books/%{tarname}-%{api_ver}/
+%doc %{_datadir}/devhelp/
 %doc %{_docdir}/%{tarname}-%{api_ver}/
 
 
 %changelog
 * Tue Mar 01 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.94-2
 - Spec cleanup
+- Actually co-own /usr/share/devhelp/ directory
 
 * Mon Feb 21 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.27.94-1
 - upstream 2.27.94
