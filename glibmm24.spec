@@ -5,7 +5,7 @@
 
 Name:           glibmm24
 Version:        2.27.94
-Release:        1%{?dist}.1
+Release:        2%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -16,7 +16,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.27.4
-
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -30,7 +29,6 @@ Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       glib2-devel%{?_isa}
 Requires:       libsigc++20-devel%{?_isa}
-
 
 %description devel
 This package contains the static libraries and header files needed for
@@ -75,35 +73,36 @@ rm -rf $RPM_BUILD_ROOT
 
 %post -p /sbin/ldconfig
 
-
 %postun -p /sbin/ldconfig
 
 
 %files
-%defattr(-, root, root, -)
+%defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING NEWS README
 %{_libdir}/*.so.*
 
-
 %files devel
-%defattr(-, root, root, -)
-%{_includedir}/glibmm-2.4
-%{_includedir}/giomm-2.4
+%defattr(-,root,root,-)
+%{_includedir}/glibmm-2.4/
+%{_includedir}/giomm-2.4/
 %{?_with_static: %{_libdir}/*.a}
 %{_libdir}/*.so
-%{_libdir}/glibmm-2.4
-%{_libdir}/giomm-2.4
+%{_libdir}/glibmm-2.4/
+%{_libdir}/giomm-2.4/
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/glibmm-2.4
 %{_datadir}/aclocal/*.m4
 
-
 %files doc
-%defattr(-, root, root, -)
-%doc %{_datadir}/devhelp/books/%{tarname}-%{api_ver}
-%doc %{_docdir}/%{tarname}-%{api_ver}
+%defattr(-,root,root,-)
+%doc %{_datadir}/devhelp/books/%{tarname}-%{api_ver}/
+%doc %{_docdir}/%{tarname}-%{api_ver}/
+
 
 %changelog
+* Tue Mar 01 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.94-2
+- Spec cleanup
+
 * Mon Feb 21 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.27.94-1
 - upstream 2.27.94
 - fix documentation location
