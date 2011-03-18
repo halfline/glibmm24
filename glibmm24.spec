@@ -4,8 +4,8 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.27.94
-Release:        2%{?dist}
+Version:        2.27.97
+Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -16,6 +16,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.27.4
+BuildRequires:  mm-common
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -90,7 +91,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/glibmm-2.4/
 %{_libdir}/giomm-2.4/
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/glibmm-2.4
 %{_datadir}/aclocal/*.m4
 
 %files doc
@@ -100,6 +100,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Mar 18 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.97-1
+- Update to 2.27.97
+- BuildRequire mm-common as the doctools are no longer bundled
+  with glibmm tarball.
+
 * Tue Mar 01 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.94-2
 - Spec cleanup
 - Actually co-own /usr/share/devhelp/ directory
