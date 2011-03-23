@@ -4,7 +4,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.27.97
+Version:        2.27.98
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -100,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Mar 23 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.98-1
+- Update to 2.27.98
+
 * Fri Mar 18 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.97-1
 - Update to 2.27.97
 - BuildRequire mm-common as the doctools are no longer bundled
