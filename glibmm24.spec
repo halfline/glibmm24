@@ -4,7 +4,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.27.98
+Version:        2.27.99
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -15,8 +15,7 @@ Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.27.4
-BuildRequires:  mm-common
+BuildRequires:  glib2-devel >= 2.28.0
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -100,6 +99,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Mar 24 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.99-1
+- Update to 2.27.99
+- Dropped BR mm-common which is no longer needed for tarball builds
+- BR stable glib2 release
+
 * Wed Mar 23 2011 Kalev Lember <kalev@smartlink.ee> - 2.27.98-1
 - Update to 2.27.98
 
