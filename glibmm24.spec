@@ -4,7 +4,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.28.0
+Version:        2.28.1
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon May 09 2011 Kalev Lember <kalev@smartlink.ee> - 2.28.1-1
+- Update to 2.28.1
+
 * Tue Apr 05 2011 Kalev Lember <kalev@smartlink.ee> - 2.28.0-1
 - Update to 2.28.0
 
