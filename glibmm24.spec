@@ -4,15 +4,14 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.28.1
+Version:        2.28.2
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.gtkmm.org/
-Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.28.0
@@ -60,15 +59,10 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
 rm -rf tools
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 
 %post -p /sbin/ldconfig
@@ -77,12 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-%defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING NEWS README
 %{_libdir}/*.so.*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/glibmm-2.4/
 %{_includedir}/giomm-2.4/
 %{?_with_static: %{_libdir}/*.a}
@@ -93,12 +85,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/aclocal/*.m4
 
 %files doc
-%defattr(-,root,root,-)
 %doc %{_datadir}/devhelp/
 %doc %{_docdir}/%{tarname}-%{api_ver}/
 
 
 %changelog
+* Tue Jun 14 2011 Kalev Lember <kalev@smartlink.ee> - 2.28.2-1
+- Update to 2.28.2
+- Use .xz compressed tarballs
+- Clean up the spec file for modern rpmbuild
+
 * Mon May 09 2011 Kalev Lember <kalev@smartlink.ee> - 2.28.1-1
 - Update to 2.28.1
 
