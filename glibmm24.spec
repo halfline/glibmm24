@@ -4,7 +4,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.28.2
+Version:        2.29.10
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -90,6 +90,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Sat Jul 09 2011 Kalev Lember <kalevlember@gmail.com> - 2.29.10-1
+- Update to 2.29.10
+
 * Tue Jun 14 2011 Kalev Lember <kalev@smartlink.ee> - 2.28.2-1
 - Update to 2.28.2
 - Use .xz compressed tarballs
