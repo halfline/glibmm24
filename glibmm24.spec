@@ -1,10 +1,9 @@
-%global tarname glibmm
 %global api_ver 2.4
 # first two digits of version
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.29.10
+Version:        2.29.11
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -86,10 +85,13 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 %files doc
 %doc %{_datadir}/devhelp/
-%doc %{_docdir}/%{tarname}-%{api_ver}/
+%doc %{_docdir}/glibmm-%{api_ver}/
 
 
 %changelog
+* Mon Jul 25 2011 Kalev Lember <kalevlember@gmail.com> - 2.29.11-1
+- Update to 2.29.11
+
 * Sat Jul 09 2011 Kalev Lember <kalevlember@gmail.com> - 2.29.10-1
 - Update to 2.29.10
 
