@@ -81,7 +81,6 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/glibmm-2.4/
 %{_libdir}/giomm-2.4/
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/aclocal/*.m4
 
 %files doc
 %doc %{_datadir}/devhelp/
