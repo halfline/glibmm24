@@ -3,7 +3,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.30.0
+Version:        2.30.1
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -88,6 +88,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Thu Dec 01 2011 Dan Horák <dan[at]danny.cz> 2.30.1-1
+- Update to 2.30.1 - fixes FTBFS with latest glib
+
 * Wed Sep 28 2011 Ray Strode <rstrode@redhat.com> 2.30.0-1
 - Update to 2.30.0
 
