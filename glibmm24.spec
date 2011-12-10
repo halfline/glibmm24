@@ -4,13 +4,16 @@
 
 Name:           glibmm24
 Version:        2.31.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.gtkmm.org/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
+# upstreamed patch
+# http://git.gnome.org/browse/glibmm/commit/?id=ce45ebe8f61ce55230ef15947612c61c7f283bd2
+Patch0:         glibmm-2.31.2-wrap-deprecated-calls.patch
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
 BuildRequires:  glib2-devel >= 2.28.0
@@ -46,7 +49,7 @@ This package contains the full API documentation for %{name}.
 
 %prep
 %setup -q -n glibmm-%{version}
-
+%patch0 -p1 -b .ftbfs
 
 %build
 %configure %{!?_with_static: --disable-static}
@@ -88,6 +91,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Sun Dec  4 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.31.2-2
+- close RHBZ #759644 (patch accepted upstream)
+
 * Sat Dec  3 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.31.2-1
 - upstream 2.31.2 (unstable)
 - do not use glib deprecated API (RHBZ #759644)
