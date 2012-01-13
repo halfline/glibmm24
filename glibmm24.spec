@@ -4,7 +4,7 @@
 
 Name:           glibmm24
 Version:        2.31.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -91,6 +91,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.31.2-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Sun Dec  4 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.31.2-2
 - close RHBZ #759644 (patch accepted upstream)
 
