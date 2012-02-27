@@ -3,7 +3,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.31.16
+Version:        2.31.18
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -88,6 +88,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Sun Feb 26 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.18-1
+- Update to 2.31.18
+
 * Tue Feb 07 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.16-1
 - Update to 2.31.16
 - Drop upstreamed patches
