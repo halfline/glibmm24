@@ -3,7 +3,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.30.0
+Version:        2.31.20
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -88,7 +88,33 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
-* Wed Sep 28 2011 Ray <rstrode@redhat.com> - 2.30.0-1
+* Wed Mar 07 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.20-1
+- Update to 2.31.20
+
+* Mon Feb 27 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.18.1-1
+- Update to 2.31.18.1
+
+* Sun Feb 26 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.18-1
+- Update to 2.31.18
+
+* Tue Feb 07 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.16-1
+- Update to 2.31.16
+- Drop upstreamed patches
+
+* Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.31.2-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
+* Sun Dec  4 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.31.2-2
+- close RHBZ #759644 (patch accepted upstream)
+
+* Sat Dec  3 2011 Haïkel Guémar <hguemar@fedoraproject.org> - 2.31.2-1
+- upstream 2.31.2 (unstable)
+- do not use glib deprecated API (RHBZ #759644)
+
+* Thu Dec 01 2011 Dan Horák <dan[at]danny.cz> 2.30.1-1
+- Update to 2.30.1 - fixes FTBFS with latest glib
+
+* Wed Sep 28 2011 Ray Strode <rstrode@redhat.com> 2.30.0-1
 - Update to 2.30.0
 
 * Wed Sep 07 2011 Kalev Lember <kalevlember@gmail.com> - 2.29.13-1
