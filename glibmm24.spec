@@ -59,8 +59,6 @@ make %{?_smp_mflags}
 
 %install
 make install DESTDIR=$RPM_BUILD_ROOT
-
-rm -rf tools
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
