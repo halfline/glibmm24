@@ -3,7 +3,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.31.20
+Version:        2.32.0
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -13,7 +13,7 @@ URL:            http://www.gtkmm.org/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
 
 BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.28.0
+BuildRequires:  glib2-devel >= 2.32.0
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -86,6 +86,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Wed Apr 11 2012 Kalev Lember <kalevlember@gmail.com> - 2.32.0-1
+- Update to 2.32.0
+
 * Wed Mar 07 2012 Kalev Lember <kalevlember@gmail.com> - 2.31.20-1
 - Update to 2.31.20
 
