@@ -12,8 +12,8 @@ License:        LGPLv2+
 URL:            http://www.gtkmm.org/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
 
-BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.32.0
+BuildRequires:  glib2-devel
+BuildRequires:  libsigc++20-devel
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
