@@ -1,4 +1,3 @@
-%global api_ver 2.4
 # first two digits of version
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
@@ -82,7 +81,7 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 %files doc
 %doc %{_datadir}/devhelp/
-%doc %{_docdir}/glibmm-%{api_ver}/
+%doc %{_docdir}/glibmm-2.4/
 
 
 %changelog
