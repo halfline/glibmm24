@@ -1,10 +1,9 @@
-%global api_ver 2.4
 # first two digits of version
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.32.0
-Release:        1%{?dist}
+Version:        2.33.3
+Release:        2%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -12,8 +11,8 @@ License:        LGPLv2+
 URL:            http://www.gtkmm.org/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
 
-BuildRequires:  libsigc++20-devel >= 2.0.0
-BuildRequires:  glib2-devel >= 2.32.0
+BuildRequires:  glib2-devel
+BuildRequires:  libsigc++20-devel
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -82,10 +81,22 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 %files doc
 %doc %{_datadir}/devhelp/
-%doc %{_docdir}/glibmm-%{api_ver}/
+%doc %{_docdir}/glibmm-2.4/
 
 
 %changelog
+* Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.33.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
+* Tue Jul 10 2012 Kalev Lember <kalevlember@gmail.com> - 2.33.3-1
+- Update to 2.33.3
+
+* Thu Jun 21 2012 Kalev Lember <kalevlember@gmail.com> - 2.33.2-1
+- Update to 2.33.2
+
+* Tue Jun 12 2012 Kalev Lember <kalevlember@gmail.com> - 2.33.1-1
+- Update to 2.33.1
+
 * Wed Apr 11 2012 Kalev Lember <kalevlember@gmail.com> - 2.32.0-1
 - Update to 2.32.0
 
