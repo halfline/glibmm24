@@ -2,7 +2,7 @@
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
 Name:           glibmm24
-Version:        2.34.1
+Version:        2.35.8
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -85,6 +85,12 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Fri Feb 22 2013 Kalev Lember <kalevlember@gmail.com> - 2.35.8-1
+- Update to 2.35.8
+
+* Wed Feb 13 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.34.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Sat Nov 10 2012 Kalev Lember <kalevlember@gmail.com> - 2.34.1-1
 - Update to 2.34.1
 
