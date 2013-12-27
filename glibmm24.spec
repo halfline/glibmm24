@@ -3,7 +3,7 @@
 
 Name:           glibmm24
 Version:        2.36.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -85,6 +85,9 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.36.2-3
+- Mass rebuild 2013-12-27
+
 * Fri Jun 21 2013 Matthias Clasen <mclasen@redhat.com> - 2.36.2-2
 - Don't install ChangeLog
 
