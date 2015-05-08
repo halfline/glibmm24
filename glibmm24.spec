@@ -1,9 +1,11 @@
 # first two digits of version
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
+%global glib2_version 2.42.0
+
 Name:           glibmm24
-Version:        2.36.2
-Release:        4%{?dist}
+Version:        2.42.0
+Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
 Group:          System Environment/Libraries
@@ -11,8 +13,10 @@ License:        LGPLv2+
 URL:            http://www.gtkmm.org/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
 
-BuildRequires:  glib2-devel
+BuildRequires:  glib2-devel >= %{glib2_version}
 BuildRequires:  libsigc++20-devel
+
+Requires:       glib2%{?_isa} >= %{glib2_version}
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -23,9 +27,7 @@ C++ and makes it possible for gtkmm to wrap GObject-based APIs.
 %package devel
 Summary:        Headers for developing programs that will use %{name}
 Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
-Requires:       glib2-devel%{?_isa}
-Requires:       libsigc++20-devel%{?_isa}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 This package contains the static libraries and header files needed for
@@ -85,6 +87,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Mon Mar 23 2015 Richard Hughes <rhughes@redhat.com> - 2.42.0-1
+- Update to 2.42.0
+- Resolves: #1174565
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 2.36.2-4
 - Mass rebuild 2014-01-24
 
