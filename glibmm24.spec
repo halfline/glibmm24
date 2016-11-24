@@ -1,22 +1,29 @@
 # first two digits of version
 %define release_version %(echo %{version} | awk -F. '{print $1"."$2}')
 
-%global glib2_version 2.42.0
+%global glib2_version 2.50.0
+%global libsigc_version 2.9.1
 
 Name:           glibmm24
-Version:        2.42.0
+Version:        2.50.0
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
-Group:          System Environment/Libraries
 License:        LGPLv2+
 URL:            http://www.gtkmm.org/
 Source0:        http://ftp.gnome.org/pub/GNOME/sources/glibmm/%{release_version}/glibmm-%{version}.tar.xz
 
 BuildRequires:  glib2-devel >= %{glib2_version}
-BuildRequires:  libsigc++20-devel
+BuildRequires:  libsigc++20-devel >= %{libsigc_version}
+BuildRequires:  m4
+BuildRequires:  perl
+%if !0%{?rhel}
+BuildRequires:  perl-generators
+%endif
+BuildRequires:  perl(Getopt::Long)
 
 Requires:       glib2%{?_isa} >= %{glib2_version}
+Requires:       libsigc++20%{?_isa} >= %{libsigc_version}
 
 %description
 glibmm is the official C++ interface for the popular cross-platform
@@ -26,7 +33,6 @@ C++ and makes it possible for gtkmm to wrap GObject-based APIs.
 
 %package devel
 Summary:        Headers for developing programs that will use %{name}
-Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description devel
@@ -36,7 +42,6 @@ developing glibmm applications.
 
 %package        doc
 Summary:        Documentation for %{name}, includes full API docs
-Group:          Documentation
 BuildArch:      noarch
 Requires:       %{name} = %{version}-%{release}
 Requires:       libsigc++20-doc
@@ -50,7 +55,7 @@ This package contains the full API documentation for %{name}.
 
 
 %build
-%configure %{!?_with_static: --disable-static}
+%configure
 # removing rpath
 sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
 sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
@@ -59,7 +64,7 @@ make %{?_smp_mflags}
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
@@ -69,13 +74,13 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %files
-%doc AUTHORS COPYING NEWS README
+%license COPYING
+%doc AUTHORS NEWS README
 %{_libdir}/*.so.*
 
 %files devel
 %{_includedir}/glibmm-2.4/
 %{_includedir}/giomm-2.4/
-%{?_with_static: %{_libdir}/*.a}
 %{_libdir}/*.so
 %{_libdir}/glibmm-2.4/
 %{_libdir}/giomm-2.4/
@@ -87,6 +92,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Tue Sep 20 2016 Kalev Lember <klember@redhat.com> - 2.50.0-1
+- Update to 2.50.0
+- Resolves: #1386875
+
 * Mon Mar 23 2015 Richard Hughes <rhughes@redhat.com> - 2.42.0-1
 - Update to 2.42.0
 - Resolves: #1174565
