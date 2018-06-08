@@ -5,7 +5,7 @@
 %global libsigc_version 2.9.1
 
 Name:           glibmm24
-Version:        2.50.0
+Version:        2.56.0
 Release:        1%{?dist}
 Summary:        C++ interface for the GLib library
 
@@ -92,6 +92,10 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 
 %changelog
+* Fri Jun 08 2018 Ray Strode <rstrode@redhat.com> - 2.56.0-1
+- Update to 2.56.0
+  Resolves: #1567380
+
 * Tue Sep 20 2016 Kalev Lember <klember@redhat.com> - 2.50.0-1
 - Update to 2.50.0
 - Resolves: #1386875
