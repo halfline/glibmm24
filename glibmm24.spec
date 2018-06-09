@@ -25,6 +25,8 @@ BuildRequires:  perl(Getopt::Long)
 Requires:       glib2%{?_isa} >= %{glib2_version}
 Requires:       libsigc++20%{?_isa} >= %{libsigc_version}
 
+Patch0:         no-regex-replace.patch
+
 %description
 glibmm is the official C++ interface for the popular cross-platform
 library GLib. It provides non-UI API that is not available in standard
@@ -52,6 +54,7 @@ This package contains the full API documentation for %{name}.
 
 %prep
 %setup -q -n glibmm-%{version}
+%patch0 -p1 -b .no-regex-replace
 
 
 %build

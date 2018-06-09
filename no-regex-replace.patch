@@ -1,0 +1,38 @@
+diff -up glibmm-2.56.0/tools/extra_defs_gen/generate_extra_defs.cc.no-regex-replace glibmm-2.56.0/tools/extra_defs_gen/generate_extra_defs.cc
+--- glibmm-2.56.0/tools/extra_defs_gen/generate_extra_defs.cc.no-regex-replace	2018-06-09 12:23:09.263360049 -0400
++++ glibmm-2.56.0/tools/extra_defs_gen/generate_extra_defs.cc	2018-06-09 12:42:26.490317489 -0400
+@@ -36,6 +36,25 @@ void add_signal_flag_if(std::string& str
+ 
+ } // anonymous namespace
+ 
++static std::string
++string_replace (const char *input,
++                const char *old_token,
++                const char *new_token)
++{
++  char **split_string;
++  char *c_output;
++  std::string output;
++
++  split_string = g_strsplit (input, old_token, -1);
++  c_output = g_strjoinv (new_token, split_string);
++  g_strfreev (split_string);
++
++  output = c_output;
++  g_free (c_output);
++
++  return output;
++}
++
+ std::string
+ get_property_with_node_name(
+   GParamSpec* pParamSpec, const std::string& strObjectName, const std::string& strNodeName)
+@@ -87,7 +106,7 @@ get_property_with_node_name(
+       // Replace newlines with \n.
+       // A string default value can contain newline characters.
+       // gmmproc removes all newlines when it reads .defs files.
+-      defString = std::regex_replace(defCString, std::regex("\n"), "\\n");
++      defString = string_replace (defCString, "\n", "\\n");
+     }
+     else
+       defString = ""; // A NULL string pointer becomes an empty string.
